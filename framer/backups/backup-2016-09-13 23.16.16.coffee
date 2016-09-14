@@ -1,0 +1,110 @@
+# video container
+videoContainer = new Layer
+	width:640
+	height:360
+	backgroundColor:'#fff'
+	shadowBlur:2
+	shadowColor:'rgba(0,0,0,0.24)'
+
+# center everything on screen	
+videoContainer.center()
+	
+# create the video layer
+videoLayer = new VideoLayer
+	width: 640
+	height: 360
+	video: "images/All.mov"
+	superLayer: videoContainer
+
+# control bar to hold buttons and timeline
+controlBar = new Layer
+	width:videoLayer.width - 448
+	height:48		
+	backgroundColor:'rgba(0,0,0,0.75)'	
+	clip:false
+	borderRadius:'8px'
+	superLayer:videoContainer
+
+# center the control bar
+controlBar.center()
+
+# position control bar towards the bottom of the video
+controlBar.y = videoLayer.maxY - controlBar.height - 10
+
+# play button
+playButton = new Layer
+	width:48
+	height:48
+	image:'images/play.png'
+	superLayer:controlBar
+	
+# on/off volume button
+volumeButton = new Layer
+	width:48
+	height:48
+	image:'images/volume_on.png'
+	superLayer:controlBar
+
+# position the volume button to the right of play
+volumeButton.x = playButton.maxX
+
+# back-scene layer
+backButton = new Layer
+	width:48
+	height:48
+	image:'images/back.png'
+	superLayer:controlBar
+	
+# position back-scene button to the right of play
+backButton.x = volumeButton.maxX
+
+# skip to choice button
+skipToChoiceButton = new Layer
+	width:48
+	height:48
+	image:'images/choose.png'
+	superLayer:controlBar
+	
+# position back-scene button to the right of play
+skipToChoiceButton.x = backButton.maxX
+
+#time given for the choice in seconds
+choiceTimer = 10
+
+# when the video is clicked
+videoLayer.on Events.Click, ->
+	# check if the player is paused
+	if videoLayer.player.paused == true
+		# if true call the play method on the video layer
+		videoLayer.player.play()
+		playButton.image = 'images/pause.png'
+	else
+		# else pause the video
+		videoLayer.player.pause()
+		playButton.image = 'images/play.png'
+		
+	# simple bounce effect on click	
+	playButton.scale = 1.15
+	playButton.animate
+		properties:
+			scale:1
+		time:0.1	
+		curve:'spring(900,30,0)'
+		
+# Volume on/off toggle
+volumeButton.on Events.Click, ->
+	if videoLayer.player.muted == false
+  		videoLayer.player.muted = true
+  		volumeButton.image = "images/volume_off.png"
+	else
+		videoLayer.player.muted = false
+		volumeButton.image = "images/volume_on.png"
+		
+	# simple bounce effect on click	
+	volumeButton.scale = 1.15
+	volumeButton.animate
+		properties:
+			scale:1
+		time:0.1	
+		curve:'spring(900,30,0)'
+		
