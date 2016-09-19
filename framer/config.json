@@ -3,14 +3,15 @@
     "Filters" : false
   },
   "deviceOrientation" : 90,
-  "sharedPrototype" : 0,
+  "sharedPrototype" : 1,
   "contentScale" : 1,
-  "deviceType" : "fullscreen",
+  "deviceType" : "apple-iphone-6s-gold",
   "selectedHand" : "",
   "updateDelay" : 0.3,
-  "deviceScale" : 1,
+  "deviceScale" : "fit",
   "foldedCodeRanges" : [
 
   ],
-  "orientation" : 0
+  "orientation" : 90,
+  "fullScreen" : false
 }
