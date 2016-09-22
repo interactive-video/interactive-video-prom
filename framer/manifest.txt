@@ -17,11 +17,27 @@
 .git/logs/refs/heads/master
 .git/logs/refs/remotes/origin/HEAD
 .git/logs/refs/remotes/origin/master
+.git/objects/26/5e94d5414df929cb767d5740e5db343de1f1aa
+.git/objects/3d/e4d2f5f763af7bf8b06a04ae4a1bed9281a012
+.git/objects/3e/b9dd5d32b505df631fe965750d9d0d35822b41
 .git/objects/49/59ad691c8258d07765c5f537cb0dbc0dd512a6
+.git/objects/57/d5dec99a987dbf995c1fce263464f0377cabc3
+.git/objects/5d/8f6d1b928a0aff4d9ac1cf84910e92815a7214
+.git/objects/67/f7fabdaa067033f6a8e2be5d459e73ba517b57
 .git/objects/6d/10ec01bfc5410f3121cc0878d48a805f967341
+.git/objects/6f/82b9b9f3ac9693a61bd1535f7fab955f9be029
+.git/objects/72/28c3f2a1e3299b80ef71e288a0be7e4fabb753
 .git/objects/75/2592e465a2b4a16e2cfa98958d0df73e581db7
 .git/objects/77/f4b90a731ffa18009f0dd3f7da6f7f29ee4896
+.git/objects/8d/61d6a3f77bcae24c076442b498d822c8421cfb
 .git/objects/95/b2aa989a67dbfd0134f84ff41e6d97d2ee7726
+.git/objects/98/8e6df3b12080d821bfd104c6d9defec8c66355
+.git/objects/a2/3e1a5f04a3dc66f792f36930f8878745e8f203
+.git/objects/a9/a7760b899547738d007ca22b164342060dc59f
+.git/objects/ca/dacf4fe25063c8e18ab54f13bcca9e3bb92adf
+.git/objects/fa/09861c40649ea5824ef925b57c92793ec5f8e8
+.git/objects/fc/303d58fd70a2f1491fb24f6c0d969b9d46b689
+.git/objects/fc/8302eecdc024ba942ffc2045a44d725c02732b
 .git/objects/pack/pack-a921427f5f80c3dbf7e623cd9382eea419d9f566.idx
 .git/objects/pack/pack-a921427f5f80c3dbf7e623cd9382eea419d9f566.pack
 .git/packed-refs
@@ -29,27 +45,27 @@
 .git/refs/remotes/origin/HEAD
 .git/refs/remotes/origin/master
 app.coffee
-framer/backups/backup-2016-09-19 14.45.25.coffee
-framer/backups/backup-2016-09-19 14.52.25.coffee
-framer/backups/backup-2016-09-19 14.54.25.coffee
-framer/backups/backup-2016-09-19 14.55.25.coffee
-framer/backups/backup-2016-09-19 14.56.26.coffee
-framer/backups/backup-2016-09-19 14.57.25.coffee
-framer/backups/backup-2016-09-19 14.58.25.coffee
-framer/backups/backup-2016-09-19 14.59.25.coffee
-framer/backups/backup-2016-09-19 15.00.25.coffee
-framer/backups/backup-2016-09-19 15.01.25.coffee
-framer/backups/backup-2016-09-19 15.02.25.coffee
-framer/backups/backup-2016-09-19 15.03.25.coffee
-framer/backups/backup-2016-09-19 15.04.25.coffee
-framer/backups/backup-2016-09-19 15.05.25.coffee
-framer/backups/backup-2016-09-19 15.06.25.coffee
-framer/backups/backup-2016-09-19 15.07.25.coffee
-framer/backups/backup-2016-09-19 15.08.25.coffee
-framer/backups/backup-2016-09-19 15.09.25.coffee
-framer/backups/backup-2016-09-19 15.13.25.coffee
-framer/backups/backup-2016-09-19 15.14.25.coffee
-framer/backups/backup-2016-09-19 15.22.25.coffee
+framer/backups/backup-2016-09-22 16.07.24.coffee
+framer/backups/backup-2016-09-22 16.08.17.coffee
+framer/backups/backup-2016-09-22 16.09.17.coffee
+framer/backups/backup-2016-09-22 16.11.17.coffee
+framer/backups/backup-2016-09-22 16.12.17.coffee
+framer/backups/backup-2016-09-22 16.13.17.coffee
+framer/backups/backup-2016-09-22 16.15.17.coffee
+framer/backups/backup-2016-09-22 16.16.17.coffee
+framer/backups/backup-2016-09-22 16.17.17.coffee
+framer/backups/backup-2016-09-22 16.18.20.coffee
+framer/backups/backup-2016-09-22 16.19.17.coffee
+framer/backups/backup-2016-09-22 16.26.17.coffee
+framer/backups/backup-2016-09-22 16.27.18.coffee
+framer/backups/backup-2016-09-22 16.28.17.coffee
+framer/backups/backup-2016-09-22 16.29.17.coffee
+framer/backups/backup-2016-09-22 16.30.17.coffee
+framer/backups/backup-2016-09-22 16.35.17.coffee
+framer/backups/backup-2016-09-22 16.36.18.coffee
+framer/backups/backup-2016-09-22 16.37.17.coffee
+framer/backups/backup-2016-09-22 16.38.17.coffee
+framer/backups/backup-2016-09-22 16.40.17.coffee
 framer/coffee-script.js
 framer/config.json
 framer/framer.generated.js
@@ -75,13 +91,15 @@ framer/style.css
 framer/version
 images/back.png
 images/choose.png
-images/dating_small_2.m4v
+images/countdown.mov
+images/download.png
 images/home.png
 images/icon.svg
-images/New Project.mp4
 images/pause.png
 images/play.png
+images/progress.gif
 images/volume_off.png
 images/volume_on.png
 index.html
+modules/ajax.coffee
 modules/myModule.coffee
