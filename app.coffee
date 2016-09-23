@@ -8,7 +8,6 @@
 # stack of scene indices
 history = [0]
 
-scenesActiveInPlayers = [0, 14, 15, -1]
 # timestamps of scene starts in seconds
 sceneStarts = [0,19.8,55.2,85.5,113.4,151.5,189.6,240.7,289.4,341,366.0,413.4,459,505,535.4,562.2,593.4,609.9,619.7,626.8,641, 668]
 
@@ -19,7 +18,7 @@ lateSceneLoads = [8, 16, 17, 5, 2, 12, 4,  7, 9, 3, 1, 6, 11]
 choiceStarts = [17,49,79,108,146,184,233,282,335,360,408,453,499,532,557,582,605,616,623,636,665]
 
 # time ranges that trigger a "non-choice" selection
-nonChoiceTimes = [[18.75, 18.99], [535.15, 535.39], [619.45, 619.69], [626.55, 626.79], [668, 668.49]]
+nonChoiceTimes = [[19.55, 19.8], [535.15, 535.39], [619.45, 619.69], [626.55, 626.79], [668.25, 668.49]]
 
 # dictionary of choices with their starts and ends, and coordinates
 # {scene number: [['startTime', 'endTime', 'xMin', 'xMax', 'yMin', 'yMax'],['startTime': ..],...]}
@@ -90,7 +89,7 @@ videoContainer.states.add
 
 # create the video layer
 # make transparent until loading finishes
-videoLayer = new VideoLayer
+videoLayerOne = new VideoLayer
 	x: 75
 	width: 1160
 	height: 650
@@ -98,7 +97,7 @@ videoLayer = new VideoLayer
 	superLayer: videoContainer
 	opacity: 1.0
 	
-childLayerOne = new VideoLayer
+videoLayerTwo = new VideoLayer
 	x: 75
 	width: 1160
 	height: 650
@@ -106,9 +105,7 @@ childLayerOne = new VideoLayer
 	superLayer: videoContainer
 	opacity: 0.0
 
-childLayerOne.player.currentTime = sceneStarts[14]
-
-childLayerTwo = new VideoLayer
+videoLayerThree = new VideoLayer
 	x: 75
 	width: 1160
 	height: 650
@@ -116,46 +113,96 @@ childLayerTwo = new VideoLayer
 	superLayer: videoContainer
 	opacity: 0.0
 		
-childLayerOne.player.currentTime = sceneStarts[15]
+videoLayerFour = new VideoLayer
+	x: 75
+	width: 1160
+	height: 650
+	video: 'http://d3rcw0c7h4lwii.cloudfront.net/stabbing_CLIPCHAMP_480p.mp4'
+	superLayer: videoContainer
+	opacity: 0.0
+	
+videoLayerFive = new VideoLayer
+	x: 75
+	width: 1160
+	height: 650
+	video: 'http://d3rcw0c7h4lwii.cloudfront.net/stabbing_CLIPCHAMP_480p.mp4'
+	superLayer: videoContainer
+	opacity: 0.0 
+	
+# preload 
+videoLayerOne.player.setAttribute('preload', 'auto')
+videoLayerTwo.player.setAttribute('preload', 'auto')
+videoLayerThree.player.setAttribute('preload', 'auto')
+videoLayerFour.player.setAttribute('preload', 'auto')
+videoLayerFive.player.setAttribute('preload', 'auto')
+
+# keep track of video settings
+currScenesInPlayers = [0,0,0,0,0]
+currStatusOfPlayers = [0,0,0,0,0]
+currPlayer = videoLayerOne
+backPlayer = videoLayerOne
+
+# initialize settings for video players
+initializeSettings = () ->
+	
+	history = [0]
+	# jump each video to the correct point after ensuring it's possible
+	videoLayerOne.player.addEventListener "loadedmetadata", -> videoLayerOne.player.currentTime = sceneStarts[0]
+	videoLayerTwo.player.addEventListener "loadedmetadata", -> videoLayerTwo.player.currentTime = sceneStarts[14]
+	videoLayerThree.player.addEventListener "loadedmetadata", -> videoLayerThree.player.currentTime = sceneStarts[15]
+	videoLayerFour.player.addEventListener "loadedmetadata", -> videoLayerFour.player.currentTime = sceneStarts[0]
+	videoLayerFive.player.addEventListener "loadedmetadata", -> videoLayerFive.player.currentTime = sceneStarts[0]
+
+	#videoLayerTwo.player.play() 
+
+	# keep track of scenes in players
+	currScenesInPlayers = [0, 14, 15, 0, 0]
+	
+	# keep track of status of each player (active = 0, previous = -1, child = 1)
+	currStatusOfPlayers = [0, 1, 1, 1, -1]
+	
+	# keep track of current and previous player
+	currPlayer = videoLayerOne
+	backPlayer = videoLayerOne
+	
+initializeSettings()
+# bring first layer to front 
+currPlayer.bringToFront()
+
+# all players
+players = [videoLayerOne, videoLayerTwo, videoLayerThree, videoLayerFour, videoLayerFive]
+	
 
 # center everything on screen
 videoContainer.center()
 
-# show load times
-videoLayer.player.setAttribute('preload', 'auto')
-childLayerOne.player.setAttribute('prelod', 'auto')
-childLayerTwo.player.setAttribute('prelod', 'auto')
-
-#load children in children players
+#Display progress in child players
 lastEnds = []
 currEnds = [0, 0, 0]
 window.setInterval( -> 
 	lastEnds = currEnds
-	currEnds = [videoLayer.player.buffered.end(0), childLayerOne.player.buffered.end(0), childLayerTwo.player.buffered.end(0)]
-	print "currEnds: ", currEnds
-, 1000)
-
-# 	# load first 10s for final clips and load full for starting clips 
-# 	print "currScene: " + currLoadingScene + " end: " + currEnd+ " percent: " + Math.round(percPreLoaded)+ "%"
-# 	if (currLoadingScene in earlySceneLoads and currEnd >= sceneStarts[currLoadingScene+1] - 1.0) or (currLoadingScene in lateSceneLoads and currEnd > sceneStarts[currLoadingScene] + 10.0)
-# 		#print "finished loading segment"
-# 		currLoadingScene = currLoadingScene + 1
-# 		# got to end of whole video
-# 		if currLoadingScene == sceneStarts.length - 1
-# 			print "done loading"
-# 			window.clearInterval(setIntervalID)
-# 			# turn video on and reset to beginning
-# 			videoLayer.player.currentTime = 0.0
-# 			videoLayer.opacity = 1.0
-# 		# jump to next buffer point
-# 		else
-# 			videoLayer.player.currentTime = Math.max(sceneStarts[currLoadingScene], currEnd)
-# 			#currStart = videoLayer.player.currentTime
-# 			#currEnd = videoLayer.player.currentTime
-# # 		videoLayer.player.play()
-# 	# continue advancing to prevent any stalls
-# 	videoLayer.player.currentTime = currEnd
-# , 200)
+	if videoLayerTwo.player.buffered.length > 0
+		#currTimes = [videoLayerOne.player.currentTime,videoLayerTwo.player.currentTime,videoLayerThree.player.currentTime,videoLayerFour.player.currentTime,videoLayerFive.player.currentTime]
+		#print videoLayerTwo.player.buffered.length
+		#for i in [0...videoLayerTwo.player.buffered.length]
+			#print videoLayerTwo.player.buffered.start(i)
+			#print videoLayerTwo.player.buffered.end(i)
+		for i in [0...players.length]
+			# force load child players if they are active
+			if currStatusOfPlayers[i] == 1 and currScenesInPlayers[i] >= 0
+			# is scene activelyBuffering?
+				activelyBuffering = 0
+				if players[i].player.buffered.length > 0
+					# if the current scene is actively being buffered, continue on. otherwise start at its beginning
+					activelyBuffering = 0
+					for j in [0...players[i].player.buffered.length]
+						if players[i].player.buffered.end(j) >= sceneStarts[currScenesInPlayers[i]] and players[i].player.buffered.end(j) <= sceneStarts[currScenesInPlayers[i]+1] 
+							players[i].player.currentTime = players[i].player.buffered.end(j)
+							activelyBuffering = 1
+				if activelyBuffering == 0
+					players[i].player.currentTime = sceneStarts[currScenesInPlayers[i]]
+		#print "currTimes: ", currTimes
+, 500)
 
 # WORKING - LOADS ALL IMPORTANT NODES
 # currLoadingScene = 0
@@ -281,11 +328,11 @@ forwardScene = new Layer
 
 # Function to handle play/pause button
 playButton.on Events.Click, ->
-	if videoLayer.player.paused == true
-		videoLayer.player.play()
+	if currPlayer.player.paused == true
+		currPlayer.player.play()
 		playButton.image = "images/pause.png"
 	else
-		videoLayer.player.pause()
+		currPlayer.player.pause()
 		playButton.image = "images/play.png"
 
 	# simple bounce effect on click
@@ -311,7 +358,7 @@ sceneChooseButtonChecker = (xCoord, yCoord) ->
 		yMax = currButton['yMax']
 		buttonStartTime = currButton['startTime']
 		buttonEndTime = currButton['endTime']
-		currTime = videoLayer.player.currentTime
+		currTime = currPlayer.player.currentTime
 	
 		# print xMin, xMax, yMin, yMax, xCoord, yCoord
 		
@@ -320,12 +367,48 @@ sceneChooseButtonChecker = (xCoord, yCoord) ->
 		if xCoord >= xMin and xCoord <= xMax and yCoord >= yMin and yCoord <= yMax and currTime > buttonStartTime and currTime < buttonEndTime
 			#print "pressed choice"
 			nextScene = currButton['sceneLink']
-			#history.push(nextScene)
-			#print "next scene:", nextScene 
+			transitionPlayersHelper(nextScene)
+			# update history
+			history.push(nextScene)
+			print "history: ", history
+
+transitionPlayersHelper = (nextScene) ->
+	#turn current video layer off and stop it
+	currPlayer.player.pause()
+	currPlayer.opacity = 0.0
+	currPlayerIndex = currStatusOfPlayers.indexOf(0)
+	backPlayer = currPlayer
+	currStatusOfPlayers[currPlayerIndex] = -1
+	
+	#figure out player for next scene
+	nextPlayerIndex = currScenesInPlayers.indexOf(nextScene)
+	currPlayer = players[nextPlayerIndex]
+	print "next player: ", nextPlayerIndex
+	print "all player curr times: ", [x.player.currentTime for x in players]
+	currPlayer.opacity = 1.0
+	currStatusOfPlayers[nextPlayerIndex] = 0
+	currPlayer.player.currentTime = sceneStarts[nextScene]
+	currPlayer.player.play()
+		
+	# updates the statuses of all players
+	childSceneIndex = 0
+	for i in [0...5]
+		if i != currPlayerIndex and i != nextPlayerIndex
+			# set child player
+			currStatusOfPlayers[i] = 1
+			# get start time for this child player
+			childSceneToAssign = sceneLinks[nextScene][childSceneIndex]
+			# update scenes in child players
+			currScenesInPlayers[i] = childSceneToAssign
+			if childSceneToAssign >= 0
+				childSceneStartTime = sceneStarts[childSceneToAssign]
+				players[i].player.currentTime = childSceneStartTime
+			childSceneIndex = childSceneIndex + 1
 			
-			videoLayer.player.currentTime = sceneStarts[nextScene]
-			videoLayer.player.play()
-		#videoLayer.player.fastSeek(sceneStarts[nextScene])
+	# place new active layer on top
+	currPlayer.bringToFront()	
+	print "Scenes: ", currScenesInPlayers
+	print "statuses: ", currStatusOfPlayers
 
 # Function to handle forward scene choice
 forwardScene.on Events.Tap, (event) ->
@@ -335,7 +418,7 @@ forwardScene.on Events.Tap, (event) ->
 	#print event.point
 	
 	# if a click occurs while buttons are active during scene, check if a button was clicked
-	currTime = videoLayer.player.currentTime
+	currTime = currPlayer.player.currentTime
 	#print currTime
 	if true in [Math.round(currTime) in  [Math.round(choiceStarts[x])... Math.round(sceneStarts[x+1])+1] for x in [0...sceneStarts.length-1]][0]
 		#print "tapped during choice"
@@ -360,16 +443,13 @@ volumeButton.on Events.Click, ->
 
 # Function to handle back button
 backButton.on Events.Click, ->
-	history.pop()
+	lastScene = history.pop()
 	if (history.length == 0)
 		history.push(0)
-	
-	#print history[history.length - 1] 
-	
-	videoLayer.player.currentTime = choiceStarts[history[history.length - 1]]
 
-	videoLayer.player.play()
-		#videoLayer.player.fastSeek(choiceStarts[history[history.length - 1]])
+	print "history: ", history
+	print "going back"
+	transitionPlayersHelper(history[history.length - 1])
 
 	# simple bounce effect on click
 	backButton.scale = 1.15
@@ -384,8 +464,8 @@ skipToChoiceButton.on Events.Click, ->
 	currScene = history[history.length - 1]
 	#print choiceStarts[currScene]
 	
-	videoLayer.player.currentTime = choiceStarts[currScene]
-	videoLayer.player.play()
+	currPlayer.player.currentTime = choiceStarts[currScene]
+	currPlayer.player.play()
 	#videoLayer.player.fastSeek(choiceStarts[currScene])
 
 	# simple bounce effect on click
@@ -398,9 +478,11 @@ skipToChoiceButton.on Events.Click, ->
 
 # Function to handle home button
 homeButton.on Events.Click, ->
-	videoLayer.player.currentTime = 0
-	videoLayer.player.play()
-	#videoLayer.player.fastSeek(0)
+	
+	currPlayer.player.pause()
+	currPlayer.opacity = 0.0
+	## just use first video player since it loaded the start scene
+	initializeSettings()
 
 	# simple bounce effect on click
 	homeButton.scale = 1.15
@@ -409,8 +491,13 @@ homeButton.on Events.Click, ->
 			scale:1
 		time:0.1
 		curve:'spring(900,30,0)'
-		
-	history = [0]
+	currPlayer.player.currentTime = 0
+	currPlayer.opacity = 1.0
+	currPlayer.bringToFront()
+	currPlayer.player.play()
+	print "history: ", history
+	print "Scenes: ", currScenesInPlayers
+	print "statuses: ", currStatusOfPlayers
 		
 # white timeline bar
 # timeline = new Layer
@@ -462,36 +549,34 @@ homeButton.on Events.Click, ->
 sceneUpdate = (currTime, targetScene) ->
 	
 	# is current scene different a new scene? 
-	currScene = history[history.length - 1]
-	if sceneStarts[targetScene] + 0.3  <= currTime  and currTime < sceneStarts[targetScene+1] - 0.3 and currScene != targetScene
-
-		currScene = targetScene
-		history.push(currScene)
-
+# 	currScene = history[history.length - 1]
+# 	if sceneStarts[targetScene] + 0.3  <= currTime  and currTime < sceneStarts[targetScene+1] - 0.3 and currScene != targetScene
+# 
+# 		currScene = targetScene
+# 		history.push(currScene)
+# 		print "history: ", history
 		#print "lastScene: ", history[history.length - 2]
 		#print "currScene: ", currScene
 		#print "history: ", history
 
 # Update the progress bar and scrubber AND CURR/LAST SCENE as video plays
-videoLayer.player.addEventListener "timeupdate", ->
+currPlayer.player.addEventListener "timeupdate", ->
 	#Calculate progress bar position
 	# newPos = (timeline.width / videoLayer.player.duration) * videoLayer.player.currentTime
 
 	#Update progress bar and scrubber
 	# scrubber.x = newPos
 	# progress.width = newPos	+ 10
-	# check if it's time to play a choice icon
-	#Update curr and last scene if scene has just switched
-	currTime = videoLayer.player.currentTime
-	sceneUpdate(currTime, scene) for scene in [0..sceneStarts.length]
-	
+
 	#advance to proper scene for a "non-choice"
+	#FIX THIS
 	for nonChoiceRange in nonChoiceTimes
-		if currTime >= nonChoiceRange[0] and currTime <= nonChoiceRange[1]
+		if currPlayer.player.currentTime >= nonChoiceRange[0] and currPlayer.player.currentTime <= nonChoiceRange[1]
 			currScene = history[history.length - 1]
 			nonActionNextScene = nonActionSceneLinks[currScene]
-			videoLayer.player.currentTime = sceneStarts[nonActionNextScene]
-			videoLayer.player.play()
+			transitionPlayersHelper(nonActionNextScene)
+			history.push(nonActionNextScene)
+			print "history: ", history
 
 # Pause the video at start of drag
 # scrubber.on Events.DragStart, ->

@@ -17,24 +17,35 @@
 .git/logs/refs/heads/master
 .git/logs/refs/remotes/origin/HEAD
 .git/logs/refs/remotes/origin/master
+.git/objects/06/f1fd32faface8ea877fbfed7855d9ec9776ada
 .git/objects/26/5e94d5414df929cb767d5740e5db343de1f1aa
 .git/objects/3d/e4d2f5f763af7bf8b06a04ae4a1bed9281a012
 .git/objects/3e/b9dd5d32b505df631fe965750d9d0d35822b41
+.git/objects/42/63ecc44c6900b0815452ba7e35f6a64741a2c4
 .git/objects/49/59ad691c8258d07765c5f537cb0dbc0dd512a6
+.git/objects/52/ddb00f1eeac3f99c8f16279cfb5b086923c288
 .git/objects/57/d5dec99a987dbf995c1fce263464f0377cabc3
 .git/objects/5d/8f6d1b928a0aff4d9ac1cf84910e92815a7214
 .git/objects/67/f7fabdaa067033f6a8e2be5d459e73ba517b57
 .git/objects/6d/10ec01bfc5410f3121cc0878d48a805f967341
 .git/objects/6f/82b9b9f3ac9693a61bd1535f7fab955f9be029
 .git/objects/72/28c3f2a1e3299b80ef71e288a0be7e4fabb753
+.git/objects/73/8fc2ade2380fea987db4dec73481da11a2b9d0
+.git/objects/74/196c44efcfcd7ebe00fd091c85c41290fbc5fd
 .git/objects/75/2592e465a2b4a16e2cfa98958d0df73e581db7
 .git/objects/77/f4b90a731ffa18009f0dd3f7da6f7f29ee4896
 .git/objects/8d/61d6a3f77bcae24c076442b498d822c8421cfb
 .git/objects/95/b2aa989a67dbfd0134f84ff41e6d97d2ee7726
 .git/objects/98/8e6df3b12080d821bfd104c6d9defec8c66355
+.git/objects/a1/936751fa980fc3485c64d54c8cf6f91b138e86
 .git/objects/a2/3e1a5f04a3dc66f792f36930f8878745e8f203
 .git/objects/a9/a7760b899547738d007ca22b164342060dc59f
 .git/objects/ca/dacf4fe25063c8e18ab54f13bcca9e3bb92adf
+.git/objects/d9/68df80dc4f589e6db11cfaa30b1e9d2e6036dd
+.git/objects/da/fe6a148cfdd5613c5f5df3e3036c71e511d389
+.git/objects/db/d052546c35b9413885f6e1f253b777c6e5d6c9
+.git/objects/e0/00d6eaaea7aacd80d7bd215ed29a03585fbc5e
+.git/objects/f7/923d734b6a9dbaa6b4f3d3366e08c413599e2a
 .git/objects/fa/09861c40649ea5824ef925b57c92793ec5f8e8
 .git/objects/fc/303d58fd70a2f1491fb24f6c0d969b9d46b689
 .git/objects/fc/8302eecdc024ba942ffc2045a44d725c02732b
@@ -45,27 +56,27 @@
 .git/refs/remotes/origin/HEAD
 .git/refs/remotes/origin/master
 app.coffee
-framer/backups/backup-2016-09-22 16.07.24.coffee
-framer/backups/backup-2016-09-22 16.08.17.coffee
-framer/backups/backup-2016-09-22 16.09.17.coffee
-framer/backups/backup-2016-09-22 16.11.17.coffee
-framer/backups/backup-2016-09-22 16.12.17.coffee
-framer/backups/backup-2016-09-22 16.13.17.coffee
-framer/backups/backup-2016-09-22 16.15.17.coffee
-framer/backups/backup-2016-09-22 16.16.17.coffee
-framer/backups/backup-2016-09-22 16.17.17.coffee
-framer/backups/backup-2016-09-22 16.18.20.coffee
-framer/backups/backup-2016-09-22 16.19.17.coffee
-framer/backups/backup-2016-09-22 16.26.17.coffee
-framer/backups/backup-2016-09-22 16.27.18.coffee
-framer/backups/backup-2016-09-22 16.28.17.coffee
-framer/backups/backup-2016-09-22 16.29.17.coffee
-framer/backups/backup-2016-09-22 16.30.17.coffee
-framer/backups/backup-2016-09-22 16.35.17.coffee
-framer/backups/backup-2016-09-22 16.36.18.coffee
-framer/backups/backup-2016-09-22 16.37.17.coffee
-framer/backups/backup-2016-09-22 16.38.17.coffee
-framer/backups/backup-2016-09-22 16.40.17.coffee
+framer/backups/backup-2016-09-22 22.29.20.coffee
+framer/backups/backup-2016-09-22 22.30.19.coffee
+framer/backups/backup-2016-09-22 22.59.20.coffee
+framer/backups/backup-2016-09-22 23.12.20.coffee
+framer/backups/backup-2016-09-22 23.15.20.coffee
+framer/backups/backup-2016-09-22 23.19.20.coffee
+framer/backups/backup-2016-09-22 23.30.20.coffee
+framer/backups/backup-2016-09-22 23.32.20.coffee
+framer/backups/backup-2016-09-22 23.34.20.coffee
+framer/backups/backup-2016-09-22 23.58.14.coffee
+framer/backups/backup-2016-09-23 00.00.14.coffee
+framer/backups/backup-2016-09-23 00.01.16.coffee
+framer/backups/backup-2016-09-23 00.02.14.coffee
+framer/backups/backup-2016-09-23 00.06.14.coffee
+framer/backups/backup-2016-09-23 00.07.14.coffee
+framer/backups/backup-2016-09-23 00.09.14.coffee
+framer/backups/backup-2016-09-23 00.10.14.coffee
+framer/backups/backup-2016-09-23 00.11.14.coffee
+framer/backups/backup-2016-09-23 00.12.14.coffee
+framer/backups/backup-2016-09-23 00.13.14.coffee
+framer/backups/backup-2016-09-23 00.16.14.coffee
 framer/coffee-script.js
 framer/config.json
 framer/framer.generated.js
