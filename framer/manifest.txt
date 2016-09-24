@@ -18,6 +18,7 @@
 .git/logs/refs/remotes/origin/HEAD
 .git/logs/refs/remotes/origin/master
 .git/objects/06/f1fd32faface8ea877fbfed7855d9ec9776ada
+.git/objects/19/f7eaf76f701c7dcdcced2c180b2c7d31a7c31c
 .git/objects/26/5e94d5414df929cb767d5740e5db343de1f1aa
 .git/objects/34/38abee9d233af010f758ebe31bdd8908bc945b
 .git/objects/3d/e4d2f5f763af7bf8b06a04ae4a1bed9281a012
@@ -26,14 +27,18 @@
 .git/objects/49/59ad691c8258d07765c5f537cb0dbc0dd512a6
 .git/objects/4e/1640c317a1b5fd1d138c109d777dc5f48cc9d5
 .git/objects/52/ddb00f1eeac3f99c8f16279cfb5b086923c288
+.git/objects/53/0dbb1815a5abb25e0116ec37f521ed59d7070e
+.git/objects/54/5965c6812c24f72500959bfa9e85552f7ea63b
 .git/objects/57/d5dec99a987dbf995c1fce263464f0377cabc3
 .git/objects/5d/8f6d1b928a0aff4d9ac1cf84910e92815a7214
 .git/objects/63/cb2f5faf70934c9362ca2ea37486825c3f7809
 .git/objects/67/f7fabdaa067033f6a8e2be5d459e73ba517b57
 .git/objects/6d/10ec01bfc5410f3121cc0878d48a805f967341
+.git/objects/6f/03ae52a8bda96915d9ec4cac368c859577559d
 .git/objects/6f/82b9b9f3ac9693a61bd1535f7fab955f9be029
 .git/objects/72/28c3f2a1e3299b80ef71e288a0be7e4fabb753
 .git/objects/73/8fc2ade2380fea987db4dec73481da11a2b9d0
+.git/objects/73/f2547583967ec32180a9b71dd60c5c505a2543
 .git/objects/74/196c44efcfcd7ebe00fd091c85c41290fbc5fd
 .git/objects/75/2592e465a2b4a16e2cfa98958d0df73e581db7
 .git/objects/77/f4b90a731ffa18009f0dd3f7da6f7f29ee4896
@@ -47,6 +52,7 @@
 .git/objects/c6/30ae2428c224258090c262532afee59b023472
 .git/objects/ca/dacf4fe25063c8e18ab54f13bcca9e3bb92adf
 .git/objects/cd/126a018235e6d1b98378151c6178101d312680
+.git/objects/ce/65162fd6000d9ec0bf892ec2b366ba5a95e15a
 .git/objects/d9/68df80dc4f589e6db11cfaa30b1e9d2e6036dd
 .git/objects/da/fe6a148cfdd5613c5f5df3e3036c71e511d389
 .git/objects/db/d052546c35b9413885f6e1f253b777c6e5d6c9
@@ -63,27 +69,27 @@
 .git/refs/remotes/origin/HEAD
 .git/refs/remotes/origin/master
 app.coffee
-framer/backups/backup-2016-09-23 00.50.16.coffee
-framer/backups/backup-2016-09-23 00.51.14.coffee
-framer/backups/backup-2016-09-23 00.52.14.coffee
-framer/backups/backup-2016-09-23 00.57.14.coffee
-framer/backups/backup-2016-09-23 00.58.14.coffee
-framer/backups/backup-2016-09-23 00.59.14.coffee
-framer/backups/backup-2016-09-23 01.00.14.coffee
-framer/backups/backup-2016-09-23 01.01.14.coffee
-framer/backups/backup-2016-09-23 01.02.14.coffee
-framer/backups/backup-2016-09-23 01.03.14.coffee
-framer/backups/backup-2016-09-23 01.06.14.coffee
-framer/backups/backup-2016-09-23 01.07.14.coffee
-framer/backups/backup-2016-09-23 01.08.14.coffee
-framer/backups/backup-2016-09-23 01.09.14.coffee
-framer/backups/backup-2016-09-23 01.10.14.coffee
-framer/backups/backup-2016-09-23 01.11.14.coffee
-framer/backups/backup-2016-09-23 01.12.14.coffee
-framer/backups/backup-2016-09-23 01.15.14.coffee
-framer/backups/backup-2016-09-23 01.16.14.coffee
-framer/backups/backup-2016-09-23 01.17.14.coffee
-framer/backups/backup-2016-09-23 01.18.14.coffee
+framer/backups/backup-2016-09-24 10.08.22.coffee
+framer/backups/backup-2016-09-24 10.10.22.coffee
+framer/backups/backup-2016-09-24 10.11.23.coffee
+framer/backups/backup-2016-09-24 10.12.22.coffee
+framer/backups/backup-2016-09-24 10.31.22.coffee
+framer/backups/backup-2016-09-24 10.32.22.coffee
+framer/backups/backup-2016-09-24 10.33.22.coffee
+framer/backups/backup-2016-09-24 10.35.22.coffee
+framer/backups/backup-2016-09-24 10.36.22.coffee
+framer/backups/backup-2016-09-24 10.41.33.coffee
+framer/backups/backup-2016-09-24 10.42.22.coffee
+framer/backups/backup-2016-09-24 10.48.22.coffee
+framer/backups/backup-2016-09-24 10.49.22.coffee
+framer/backups/backup-2016-09-24 10.50.22.coffee
+framer/backups/backup-2016-09-24 10.53.22.coffee
+framer/backups/backup-2016-09-24 10.54.22.coffee
+framer/backups/backup-2016-09-24 10.55.23.coffee
+framer/backups/backup-2016-09-24 10.56.22.coffee
+framer/backups/backup-2016-09-24 11.05.22.coffee
+framer/backups/backup-2016-09-24 11.06.22.coffee
+framer/backups/backup-2016-09-24 11.11.22.coffee
 framer/coffee-script.js
 framer/config.json
 framer/framer.generated.js
@@ -113,6 +119,7 @@ images/countdown.mov
 images/download.png
 images/home.png
 images/icon.svg
+images/loading.gif
 images/pause.png
 images/play.png
 images/progress.gif
